@@ -4,9 +4,166 @@ Frontend do **Novo Força de Vendas** - Single Page Application em React.
 
 ---
 
-## 📋 Sobre o Projetoo
+## 📋 Sobre o Projeto
 
 Interface web moderna e responsiva para gestão completa de pedidos de vendas, integrando com a API REST do backend NFV.
+
+---
+
+## ✅ Status do Projeto
+
+### 🎉 Implementado e Funcional
+
+#### Configuração Base
+- ✅ **Package.json** - Todas as dependências configuradas
+- ✅ **TypeScript** - tsconfig.json completo com strict mode
+- ✅ **Vite** - Build tool configurado com aliases (@/)
+- ✅ **ESLint + Prettier** - Linting e formatação de código
+- ✅ **TailwindCSS** - Framework CSS configurado
+- ✅ **PostCSS** - Autoprefixer configurado
+
+#### API Layer
+- ✅ **Axios** - Cliente HTTP configurado (`src/api/axios.ts`)
+- ✅ **Interceptors** - Request/Response interceptors implementados
+  - Adiciona token JWT automaticamente
+  - Tratamento global de erros (401, 403, 404, 500, etc.)
+  - Toast notifications para feedback ao usuário
+- ✅ **Endpoints** - Constantes de endpoints organizadas (`src/api/endpoints.ts`)
+
+#### State Management
+- ✅ **Zustand - Auth Store** - Gerenciamento de autenticação
+  - Armazena user e token
+  - Persist em localStorage
+  - Métodos: setAuth, clearAuth, isAuthenticated
+- ✅ **Zustand - UI Store** - Gerenciamento de interface
+  - Controle de sidebar (aberta/fechada)
+  - Theme (light/dark) - preparado para uso
+  - Persist em localStorage
+
+#### Roteamento
+- ✅ **React Router** - Navegação configurada
+- ✅ **Protected Routes** - Rotas protegidas por autenticação
+- ✅ **Route Structure** - Estrutura de rotas definida
+
+#### Componentes UI (shadcn/ui)
+- ✅ **Button** - Componente de botão com variantes
+- ✅ **Input** - Campo de entrada de texto
+- ✅ **Card** - Componentes de card (Card, CardHeader, CardTitle, CardContent, CardFooter)
+
+#### Componentes Layout
+- ✅ **Header** - Cabeçalho com menu toggle e logout
+- ✅ **Sidebar** - Menu lateral com navegação
+- ✅ **MainLayout** - Layout principal com header + sidebar
+
+#### Componentes Comuns
+- ✅ **Loading** - Indicador de carregamento (spinner)
+- ✅ **ErrorMessage** - Mensagem de erro estilizada
+
+#### Páginas
+- ✅ **LoginPage** - Tela de login funcional
+  - Formulário com email e senha
+  - Validação básica
+  - Layout responsivo
+- ✅ **HomePage** - Dashboard inicial
+  - Cards de estatísticas (mock data)
+  - Layout de boas-vindas
+
+#### Utilitários
+- ✅ **Formatters** - Funções de formatação
+  - formatCurrency (R$ 1.234,56)
+  - formatDate (dd/MM/yyyy)
+  - formatCPF, formatCNPJ, formatCPFCNPJ
+  - formatPhone, formatCEP
+  - formatNumber
+- ✅ **Validators** - Funções de validação
+  - isValidCPF
+  - isValidCNPJ
+  - isValidEmail
+  - isValidCEP
+- ✅ **Constants** - Constantes da aplicação
+  - APP_NAME, APP_VERSION
+  - API_BASE_URL
+  - ROUTES (todas as rotas)
+  - ITEMS_PER_PAGE
+
+#### Custom Hooks
+- ✅ **useDebounce** - Hook para debounce de valores
+- ✅ **useLocalStorage** - Hook para localStorage com sync
+
+#### Types
+- ✅ **Common Types** - Types compartilhados
+  - PaginatedResponse<T>
+  - ErrorResponse
+  - FieldError
+- ✅ **API Types** - Types de API
+  - ApiConfig
+  - RequestConfig
+
+#### Arquivos de Configuração
+- ✅ **.env.local** - Variáveis de ambiente configuradas
+- ✅ **.gitignore** - Arquivos ignorados pelo git
+- ✅ **tailwind.config.js** - Configuração do Tailwind
+- ✅ **postcss.config.js** - Configuração do PostCSS
+- ✅ **components.json** - Configuração do shadcn/ui
+- ✅ **SETUP.md** - Guia de setup do projeto
+
+### 🔄 Próximas Implementações
+
+#### Autenticação
+- ⏳ Implementar service de autenticação real
+- ⏳ Integrar LoginPage com API do backend
+- ⏳ Hook useLogin com TanStack Query
+
+#### Módulo de Pedidos
+- ⏳ PedidosListaPage (listagem com filtros)
+- ⏳ PedidoFormPage (formulário de criação)
+- ⏳ PedidoDetalhesPage (visualização completa)
+- ⏳ Componentes de pedido (PedidoForm, PedidoItens, etc.)
+- ⏳ Services de pedido
+- ⏳ Hooks de pedido (usePedidos, useCriarPedido)
+- ⏳ Validações Zod para pedidos
+
+#### Módulo de Clientes
+- ⏳ CRUD completo de clientes
+- ⏳ Listagem, formulário, detalhes
+
+#### Módulo de Produtos
+- ⏳ CRUD completo de produtos
+- ⏳ Listagem, formulário, detalhes
+
+#### Componentes UI Adicionais
+- ⏳ Table - Tabelas de dados
+- ⏳ Dialog - Modais
+- ⏳ Select - Seletor customizado
+- ⏳ DatePicker - Seletor de data
+- ⏳ Toast - Notificações (já configurado Sonner)
+
+#### Form Components
+- ⏳ FormInput, FormSelect, FormDatePicker
+- ⏳ FormCurrency - Input para valores monetários
+
+---
+
+## 🚀 Quick Start
+
+Para rodar o projeto localmente:
+
+```bash
+# 1. Instalar dependências
+npm install
+
+# 2. O arquivo .env.local já está configurado com:
+# VITE_API_BASE_URL=http://localhost:8080/api/v1
+# (Ajuste se necessário)
+
+# 3. Executar em modo desenvolvimento
+npm run dev
+
+# 4. Acessar no navegador
+# http://localhost:3000
+```
+
+**Nota:** A autenticação está em modo simulação. Para login completo, será necessário implementar a integração com o backend.
 
 ---
 
@@ -613,6 +770,46 @@ Para dúvidas ou problemas, entre em contato com a equipe de desenvolvimento.
 - [TailwindCSS](https://tailwindcss.com/docs)
 - [TanStack Query](https://tanstack.com/query/latest)
 - [shadcn/ui](https://ui.shadcn.com)
+
+---
+
+## 📝 Changelog
+
+### [1.0.0] - 2025-12-26
+
+#### Implementações Iniciais
+
+**Infraestrutura Base:**
+- Configuração completa do projeto com Vite + React + TypeScript
+- Setup do TailwindCSS com tema customizado
+- ESLint e Prettier configurados
+- Estrutura de pastas organizada por features
+
+**API e Estado:**
+- Cliente HTTP Axios com interceptors
+- Tratamento global de erros com feedback visual (Sonner)
+- Zustand stores para autenticação e UI
+- TanStack Query configurado para cache de dados
+
+**Componentes e Layout:**
+- Componentes base do shadcn/ui (Button, Input, Card)
+- Layout completo com Header e Sidebar responsivo
+- Componentes comuns (Loading, ErrorMessage)
+- Sistema de rotas protegidas
+
+**Páginas:**
+- Tela de login com formulário funcional
+- Dashboard inicial com cards de estatísticas
+
+**Utilitários:**
+- Funções de formatação (moeda, data, CPF/CNPJ, telefone)
+- Validadores (CPF, CNPJ, email, CEP)
+- Hooks customizados (useDebounce, useLocalStorage)
+
+**Documentação:**
+- README completo com instruções
+- SETUP.md com guia de instalação
+- Tipos TypeScript documentados
 
 ---
 
