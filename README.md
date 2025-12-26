@@ -4,7 +4,7 @@ Frontend do **Novo Força de Vendas** - Single Page Application em React.
 
 ---
 
-## 📋 Sobre o Projeto
+## 📋 Sobre o Projetoo
 
 Interface web moderna e responsiva para gestão completa de pedidos de vendas, integrando com a API REST do backend NFV.
 
