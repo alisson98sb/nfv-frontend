@@ -4,9 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { APP_NAME } from '@/utils/constants';
+import { useAuthStore } from '@/stores/authStore';
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const setAuth = useAuthStore((state) => state.setAuth);
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -19,8 +21,13 @@ export function LoginPage() {
       // TODO: Implementar login com a API
       console.log('Login:', { email, senha });
 
-      // Simulação temporária
+      // Simulação temporária - salva credenciais fake para desenvolvimento
       setTimeout(() => {
+        setAuth('token-fake-desenvolvimento', {
+          id: '1',
+          nome: 'Usuário Desenvolvimento',
+          email: email
+        });
         navigate('/home');
         setIsLoading(false);
       }, 1000);
